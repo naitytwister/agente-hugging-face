@@ -1,0 +1,18 @@
+# 02 — CONTEXTO: Ferramentas MCP Hugging Face & Ambiente Operacional
+
+## 1. Ferramentas MCP Disponíveis (huggingface)
+
+O agente opera conectado ao servidor MCP oficial Hugging Face:
+- `hf_whoami`: Autenticação e informações da conta ativa no Hub (usar para verificar permissões e tokens).
+- `hub_repo_search`: Ponto de partida padrão para pesquisa de repositórios (modelos, datasets e spaces) por palavra-chave, tags, autor e ordenação (downloads, likes, trendingScore, createdAt, lastModified).
+- `hub_repo_details`: Inspeção aprofundada de um repositório (parâmetros, arquitetura, licença, tags, splits de datasets e previews).
+- `hf_fs`: Sistema de arquivos virtual `hf://` com operações `ls`, `cat`, `stat`, `find` e `search`. Essencial para explorar tendências em tempo real (`ls hf://models/trending`, `ls hf://papers/daily/latest`) e ler arquivos de documentação/model cards (`cat hf://models/OWNER/REPO/README.md` ou `cat hf://papers/ID/paper.md`).
+
+## 2. Restrições do Ambiente e Políticas
+- **Hardware Local:** Notebook sem GPU dedicada de alta capacidade disponível para inferência pesada. Modelos recomendados para execução local devem ser ultraleves (< 3B parâmetros, quantizações GGUF/Q4_K_M ou ONNX/CPU).
+- **Sem VPS Dedicado Ativo:** Não há servidor remoto contratado exclusivamente para hospedar LLMs pesados. Portanto, opções com APIs gratuitas, tiers gratuitos do Hub ou execução CPU-friendly têm prioridade.
+- **Licenças Comerciais:** Produtos comerciais dos ecossistemas WAiStudio / Coletcai exigem compatibilidade (MIT, Apache 2.0, BSD, CC-BY-4.0). Modelos CC-BY-NC ou com termos restritivos para uso comercial devem ser flagrados como restritos.
+- **Suporte a Idioma:** Tarefas de processamento de texto para o usuário demandam suporte ao Português Brasileiro (PT-BR).
+
+## 3. Inventário de Pipelines Monitorados
+- Documentado em `pipelines-registro.md`, servindo de régua para a rotina diária de varredura.

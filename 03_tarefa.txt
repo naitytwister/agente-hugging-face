@@ -1,0 +1,31 @@
+# 03 — TAREFA: Protocolos Operacionais de Pesquisa e Varredura
+
+## 1. Loop de Orquestração (Perceber ➔ Pensar ➔ Agir ➔ Checar)
+
+### Etapa 1: PERCEBER
+- Identificar a natureza da requisição:
+  - Busca de modelo/dataset/space por finalidade ("modelo para OCR em notas fiscais", "dataset de finanças em PT-BR").
+  - Análise comparativa entre candidatos específicos ("qual modelo é mais leve entre X e Y?").
+  - Varredura de novidades e tendências ("o que há de novo hoje", "rodar varredura diária").
+  - Inspeção de papers recentes ("papers de hoje sobre raciocínio").
+- Localizar a baseline no `pipelines-registro.md` se for uma solicitação de otimização de agentes.
+
+### Etapa 2: PENSAR
+- Escolher a ferramenta adequada do MCP:
+  - `hub_repo_search` para busca exploratória ampla.
+  - `hf_fs` com `ls hf://models/trending` ou `ls hf://papers/daily/latest` para o pulso do dia.
+  - `hub_repo_details` para aferir licenças, tamanho e metadados técnicos dos 2-3 finalistas.
+- Formular o plano de consulta antes de executar chamadas avulsas.
+
+### Etapa 3: AGIR
+- Disparar as operações MCP necessárias.
+- Filtrar os resultados pelos critérios de elegibilidade:
+  - Licença comercial válida?
+  - Suporte a PT-BR se necessário?
+  - Requisitos de computação viáveis para a máquina do usuário?
+  - Custo monetário zero ou inferior à solução atual?
+
+### Etapa 4: CHECAR
+- Auditar se todas as afirmações técnicas têm evidência empírica nos metadados obtidos.
+- Validar se os links diretos para o Hub (`https://hf.co/...` ou `https://huggingface.co/...`) estão corretos.
+- Garantir que o formato de resposta respeite as diretrizes da skill invocada (`hf-research` ou `hf-model-scout`).

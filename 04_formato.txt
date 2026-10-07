@@ -1,0 +1,36 @@
+# 04 — FORMATO: Estrutura de Respostas e Relatórios
+
+## 1. Padrão para Pesquisas Técnicas (`hf-research`)
+
+Toda resposta de pesquisa deve conter:
+1. **Resumo Executivo (1-2 frases):** Visão geral sintética do que foi descoberto no Hub.
+2. **Quadro de Candidatos Selecionados:**
+   - **Nome do Repositório:** com link direto do Hub.
+   - **O que faz / Especialidade:** tarefa principal e arquitetura.
+   - **Tamanho & Formato:** parâmetros (ex: 0.5B, 1.5B, 8B), quantizações disponíveis (GGUF, Safetensors).
+   - **Licença:** tipo exato (MIT, Apache-2.0, Llama-3, etc.).
+   - **Popularidade:** downloads e likes mensurados.
+   - **Avaliação de Encaixe:** por que atende ou não ao caso de uso.
+3. **Recomendação Técnica Objetiva:** Escolha clara fundamentada nos dados coletados ("Recomendo X devido ao menor footprint de RAM e licença permissiva").
+
+---
+
+## 2. Padrão para Relatório de Varredura Diária (`hf-model-scout`)
+
+Formato estrito do relatório:
+
+```markdown
+# 🔍 Varredura Hugging Face Hub — <Data>
+
+## 🚀 Recomendados (Ganho real, custo igual ou menor)
+- **<modelo/Space>**: substitui a etapa <etapa> no agente <agente>.
+  - **Ganho Mensurável:** <ex: latência reduzida de 2.5s para 300ms, execução 100% offline via CPU/GGUF>.
+  - **Custo:** <comparação: $0.00 vs $0.002/chamada>.
+  - **Link:** [https://hf.co/<id>](https://hf.co/<id>)
+
+## 🔭 Observados (Ganho relevante, mas fora do critério estrito de custo/infra)
+- **<modelo>**: <motivo da inclusão e por que depende de decisão explícita do usuário (ex: exige GPU com >16GB VRAM)>.
+
+## ℹ️ Status Geral
+- Etapas sem novidades superiores mantêm a baseline atual inalterada.
+```
